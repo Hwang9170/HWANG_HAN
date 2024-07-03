@@ -16,6 +16,17 @@
             <input type="text" id="schoolInput" placeholder="학교 이름을 입력하세요">
             <button onclick="searchCafes()"><i class="fas fa-search"></i> 검색</button>
             <button onclick="useCurrentLocation()"><i class="fas fa-map-marker-alt"></i> 현재 위치 사용</button>
+            
+        </div>
+        <br>
+        <div class="container">
+            <!-- 기존 내용 -->
+            <div class="search-container">
+                <!-- 기존 검색 기능 -->
+                <button onclick="getAIRecommendation()">AI 카페 추천 받기</button>
+            </div>
+            <div id="aiRecommendation"></div>
+            <!-- 기존 내용 -->
         </div>
         <div id="map"></div>
         <div id="cafeList"></div>
@@ -33,7 +44,18 @@
             <div id="reviewList"></div>
         </div>
     </div>
+    <div class="container">
+    <!-- 기존 내용 -->
+    <div class="search-container">
+        <!-- 기존 검색 기능 -->
+        <button onclick="getAIRecommendation()">AI 카페 추천 받기</button>
+    </div>
+    <div id="aiRecommendation"></div>
+    <!-- 기존 내용 -->
+</div>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
     <script src="script.js"></script>
+
+    
 </body>
 </html>

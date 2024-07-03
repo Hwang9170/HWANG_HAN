@@ -136,3 +136,30 @@ button:hover {
   color: #f1c40f;
   font-size: 20px;
 }
+
+#aiRecommendation {
+  background-color: #f0f8ff;
+  border: 1px solid #add8e6;
+  border-radius: 5px;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+#aiRecommendation h3 {
+  color: #4169e1;
+  margin-top: 0;
+}
+
+#aiRecommendation button {
+  background-color: #4169e1;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#aiRecommendation button:hover {
+  background-color: #1e90ff;
+}
