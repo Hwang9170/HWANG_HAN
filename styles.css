@@ -25,6 +25,7 @@ h1 {
 
 .search-container {
   display: flex;
+  flex-direction: column;
   margin-bottom: 20px;
 }
 
@@ -33,7 +34,8 @@ h1 {
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ddd;
-  border-radius: 4px 0 0 4px;
+  border-radius: 4px 4px 0 0;
+  margin-bottom: 10px;
 }
 
 button {
@@ -41,7 +43,7 @@ button {
   font-size: 16px;
   background-color: #2ecc71;
   color: white;
-  border: none;
+  border: 1px solid #70faa9; /* 여기서 외부 선을 추가 */
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -162,4 +164,47 @@ button:hover {
 
 #aiRecommendation button:hover {
   background-color: #1e90ff;
+}
+
+@media (min-width: 600px) {
+  .search-container {
+    flex-direction: row;
+  }
+
+  #schoolInput {
+    border-radius: 4px 0 0 4px;
+    margin-bottom: 0;
+  }
+
+  button {
+    border-radius: 0 4px 4px 0;
+    margin-left: -1px; /* to overlap the button border with the input border */
+  }
+}
+
+@media (max-width: 599px) {
+  .container {
+    padding: 10px;
+  }
+
+  header {
+    padding: 15px 0;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  button {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  #map {
+    height: 300px;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
 }
