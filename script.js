@@ -2,32 +2,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const preferencesForm = document.getElementById('preferences-form');
   const cafeList = document.getElementById('cafe-list');
 
-  // Sample data loaded from the provided files
   const sinchonCafes = [
-      { name: '스타벅스', ratings: { taste: 3, facility: 4, noise: 4 }},
-      { name: '고르드', ratings: { taste: 5, facility: 1, noise: 3 }},
-      { name: '알로하', ratings: { taste: 3, facility: 2, noise: 4 }},
-      { name: '파이홀', ratings: { taste: 4, facility: 3, noise: 3 }},
-      // More data...
+      { name: '스타벅스', ratings: { taste: 3, facility: 4, noise: 4 } },
+      { name: '고르드', ratings: { taste: 5, facility: 1, noise: 3 } },
+      { name: '알로하', ratings: { taste: 3, facility: 2, noise: 4 } },
+      { name: '파이홀', ratings: { taste: 4, facility: 3, noise: 3 } },
+      { name: '폴바셋', ratings: { taste: 5, facility: 4, noise: 5 } },
+      { name: '커피빈', ratings: { taste: 3, facility: 3, noise: 2 } }
   ];
 
   const yeonnamCafes = [
-      { name: '카페레이어드', ratings: { taste: 4, facility: 2, noise: 3 }},
-      { name: '달콤다정', ratings: { taste: 4, facility: 3, noise: 4 }},
-      { name: '땡스오트', ratings: { taste: 5, facility: 2, noise: 5 }},
-      { name: '테일러커피', ratings: { taste: 5, facility: 3, noise: 3 }},
-      // More data...
+      { name: '카페레이어드', ratings: { taste: 4, facility: 2, noise: 3 } },
+      { name: '달콤다정', ratings: { taste: 4, facility: 3, noise: 4 } },
+      { name: '땡스오트', ratings: { taste: 5, facility: 2, noise: 5 } },
+      { name: '테일러커피', ratings: { taste: 5, facility: 3, noise: 3 } },
+      { name: '모모스커피', ratings: { taste: 5, facility: 4, noise: 4 } },
+      { name: '커피리브레', ratings: { taste: 4, facility: 3, noise: 3 } }
   ];
 
   const hongdaeCafes = [
-      { name: '작당모의', ratings: { taste: 4, facility: 3, noise: 4 }},
-      { name: '샌드스톤커피랩', ratings: { taste: 5, facility: 5, noise: 5 }},
-      { name: '스타벅스', ratings: { taste: 4, facility: 3, noise: 3 }},
-      { name: '투썸플레이스', ratings: { taste: 4, facility: 3, noise: 3 }},
-      // More data...
+      { name: '작당모의', ratings: { taste: 4, facility: 3, noise: 4 } },
+      { name: '샌드스톤커피랩', ratings: { taste: 5, facility: 5, noise: 5 } },
+      { name: '스타벅스', ratings: { taste: 4, facility: 3, noise: 3 } },
+      { name: '투썸플레이스', ratings: { taste: 4, facility: 3, noise: 3 } },
+      { name: '망원동티라미수', ratings: { taste: 5, facility: 4, noise: 4 } },
+      { name: '커피몽타주', ratings: { taste: 5, facility: 5, noise: 4 } }
   ];
 
-  // Function to recommend cafes based on user preferences
   const recommendCafes = (location, preferences) => {
       let cafes = [];
       switch (location) {
@@ -44,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
               return [];
       }
 
-      const filteredCafes = cafes.filter(cafe => 
+      const filteredCafes = cafes.filter(cafe =>
           cafe.ratings.facility >= preferences.facility &&
           cafe.ratings.noise >= preferences.noise &&
           cafe.ratings.taste >= preferences.taste
@@ -53,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return filteredCafes;
   };
 
-  // Function to display cafes
   const displayCafes = (cafes) => {
       cafeList.innerHTML = '';
       cafes.forEach(cafe => {
@@ -69,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   };
 
-  // Handle form submission
   preferencesForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const location = document.getElementById('location').value;
