@@ -12,25 +12,55 @@ header {
   text-align: center;
 }
 
-nav a {
-  margin: 0 1em;
-  color: #fff;
-  text-decoration: none;
-}
-
 main {
   padding: 1em;
 }
 
-#cafe-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
-}
-
-#cafe-list .cafe-card {
+#chatbot {
+  max-width: 600px;
+  margin: 0 auto;
   border: 1px solid #ccc;
   padding: 1em;
-  width: calc(33% - 2em);
-  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+#chat-window {
+  border: 1px solid #ccc;
+  padding: 1em;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+#chat-output {
+  display: flex;
+  flex-direction: column;
+}
+
+#user-input {
+  width: calc(100% - 100px);
+  padding: 0.5em;
+}
+
+#send-button {
+  width: 80px;
+  padding: 0.5em;
+  margin-left: 10px;
+}
+
+.user {
+  align-self: flex-end;
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin: 5px 0;
+}
+
+.bot {
+  align-self: flex-start;
+  background-color: #f1f1f1;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin: 5px 0;
 }

@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const preferencesForm = document.getElementById('preferences-form');
-  const cafeList = document.getElementById('cafe-list');
+  const chatOutput = document.getElementById('chat-output');
+  const userInput = document.getElementById('user-input');
+  const sendButton = document.getElementById('send-button');
 
   const sinchonCafes = [
       { name: '스타벅스', ratings: { taste: 3, facility: 4, noise: 4 } },
@@ -29,6 +30,18 @@ document.addEventListener('DOMContentLoaded', () => {
       { name: '커피몽타주', ratings: { taste: 5, facility: 5, noise: 4 } }
   ];
 
+  let step = 0;
+  let userPreferences = {};
+  let location;
+
+  const appendMessage = (message, sender) => {
+      const messageElement = document.createElement('div');
+      messageElement.textContent = message;
+      messageElement.className = sender;
+      chatOutput.appendChild(messageElement);
+      chatOutput.scrollTop = chatOutput.scrollHeight;
+  };
+
   const recommendCafes = (location, preferences) => {
       let cafes = [];
       switch (location) {
@@ -54,35 +67,59 @@ document.addEventListener('DOMContentLoaded', () => {
       return filteredCafes;
   };
 
-  const displayCafes = (cafes) => {
-      cafeList.innerHTML = '';
-      cafes.forEach(cafe => {
-          const cafeCard = document.createElement('div');
-          cafeCard.className = 'cafe-card';
-          cafeCard.innerHTML = `
-              <h3>${cafe.name}</h3>
-              <p>Taste: ${cafe.ratings.taste}</p>
-              <p>Facility: ${cafe.ratings.facility}</p>
-              <p>Noise: ${cafe.ratings.noise}</p>
-          `;
-          cafeList.appendChild(cafeCard);
-      });
+  const processUserInput = (input) => {
+      switch (step) {
+          case 0:
+              location = input.toLowerCase();
+              appendMessage('시설 등급(1-5) 최소 어느 정도를 원하시나요?', 'bot');
+              step++;
+              break;
+          case 1:
+              userPreferences.facility = parseInt(input);
+              appendMessage('소음 등급(1-5) 최소 어느 정도를 원하시나요?', 'bot');
+              step++;
+              break;
+          case 2:
+              userPreferences.noise = parseInt(input);
+              appendMessage('맛 등급(1-5) 최소 어느 정도를 원하시나요?', 'bot');
+              step++;
+              break;
+          case 3:
+              userPreferences.taste = parseInt(input);
+              const recommendedCafes = recommendCafes(location, userPreferences);
+              if (recommendedCafes.length > 0) {
+                  appendMessage('조건에 맞는 카페를 추천합니다:', 'bot');
+                  recommendedCafes.forEach(cafe => {
+                      appendMessage(`추천 카페: ${cafe.name}, 맛: ${cafe.ratings.taste}, 시설: ${cafe.ratings.facility}, 소음: ${cafe.ratings.noise}`, 'bot');
+                  });
+              } else {
+                  appendMessage('조건에 맞는 카페가 없습니다.', 'bot');
+              }
+              step = 0;
+              appendMessage('다른 지역의 카페를 찾고 싶으시면 지역명을 입력해주세요. (Sinchon, Yeonnam, Hongdae)', 'bot');
+              break;
+          default:
+              appendMessage('잘못된 입력입니다. 다시 시도해주세요.', 'bot');
+              step = 0;
+              appendMessage('어느 지역의 카페를 찾고 계신가요? (Sinchon, Yeonnam, Hongdae)', 'bot');
+              break;
+      }
   };
 
-  preferencesForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const location = document.getElementById('location').value;
-      const facilityRating = document.getElementById('facility-rating').value;
-      const noiseRating = document.getElementById('noise-rating').value;
-      const tasteRating = document.getElementById('taste-rating').value;
+  appendMessage('어느 지역의 카페를 찾고 계신가요? (Sinchon, Yeonnam, Hongdae)', 'bot');
 
-      const userPreferences = {
-          facility: parseInt(facilityRating),
-          noise: parseInt(noiseRating),
-          taste: parseInt(tasteRating)
-      };
+  sendButton.addEventListener('click', () => {
+      const userMessage = userInput.value.trim();
+      if (userMessage) {
+          appendMessage(userMessage, 'user');
+          processUserInput(userMessage);
+          userInput.value = '';
+      }
+  });
 
-      const recommendedCafes = recommendCafes(location, userPreferences);
-      displayCafes(recommendedCafes);
+  userInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+          sendButton.click();
+      }
   });
 });
