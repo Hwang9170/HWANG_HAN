@@ -34,24 +34,28 @@ document.addEventListener('DOMContentLoaded', () => {
   let userPreferences = {};
   let location;
 
+  const scrollToBottom = () => {
+      chatOutput.scrollTop = chatOutput.scrollHeight;
+  };
+
   const appendMessage = (message, sender) => {
       const messageElement = document.createElement('div');
       messageElement.textContent = message;
       messageElement.className = sender;
       chatOutput.appendChild(messageElement);
-      chatOutput.scrollTop = chatOutput.scrollHeight;
+      scrollToBottom();  // 자동 스크롤 기능 추가
   };
 
   const recommendCafes = (location, preferences) => {
       let cafes = [];
       switch (location) {
-          case 'sinchon':
+          case '신촌':
               cafes = sinchonCafes;
               break;
-          case 'yeonnam':
+          case '연남':
               cafes = yeonnamCafes;
               break;
-          case 'hongdae':
+          case '홍대':
               cafes = hongdaeCafes;
               break;
           default:
@@ -70,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const processUserInput = (input) => {
       switch (step) {
           case 0:
-              location = input.toLowerCase();
+              location = input;
               appendMessage('시설 등급(1-5) 최소 어느 정도를 원하시나요?', 'bot');
               step++;
               break;
@@ -96,17 +100,17 @@ document.addEventListener('DOMContentLoaded', () => {
                   appendMessage('조건에 맞는 카페가 없습니다.', 'bot');
               }
               step = 0;
-              appendMessage('다른 지역의 카페를 찾고 싶으시면 지역명을 입력해주세요. (Sinchon, Yeonnam, Hongdae)', 'bot');
+              appendMessage('다른 지역의 카페를 찾고 싶으시면 지역명을 입력해주세요. (신촌, 연남, 홍대)', 'bot');
               break;
           default:
               appendMessage('잘못된 입력입니다. 다시 시도해주세요.', 'bot');
               step = 0;
-              appendMessage('어느 지역의 카페를 찾고 계신가요? (Sinchon, Yeonnam, Hongdae)', 'bot');
+              appendMessage('어느 지역의 카페를 찾고 계신가요? (신촌, 연남, 홍대)', 'bot');
               break;
       }
   };
 
-  appendMessage('어느 지역의 카페를 찾고 계신가요? (Sinchon, Yeonnam, Hongdae)', 'bot');
+  appendMessage('안녕하세요! 카페 추천 챗봇입니다. 어느 지역의 카페를 찾고 계신가요? (신촌, 연남, 홍대)', 'bot');
 
   sendButton.addEventListener('click', () => {
       const userMessage = userInput.value.trim();
@@ -122,4 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
           sendButton.click();
       }
   });
+
+  // MutationObserver를 사용하여 채팅창에 새로운 메시지가 추가될 때마다 스크롤 조정
+  const observer = new MutationObserver(scrollToBottom);
+  observer.observe(chatOutput, { childList: true });
 });
