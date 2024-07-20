@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Cafe Recommendation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>랜덤 카페 추천</h1>
+    </header>
+
+    <main>
+        <div id="recommendation">
+            <label for="location">지역을 선택하세요:</label>
+            <select id="location">
+                <option value="sinchon">신촌</option>
+                <option value="yeonnam">연남</option>
+                <option value="hongdae">홍대</option>
+            </select>
+            <br><br>
+            <label for="theme">테마를 선택하세요:</label>
+            <select id="theme">
+                <option value="date">소개팅</option>
+                <option value="study">공부</option>
+                <option value="relax">휴식</option>
+            </select>
+            <br><br>
+            <button id="recommend-button">카페 추천받기</button>
+            <div id="cafe-info" class="hidden">
+                <h2 id="cafe-name"></h2>
+                <p id="cafe-ratings"></p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Random Cafe Recommendation. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
