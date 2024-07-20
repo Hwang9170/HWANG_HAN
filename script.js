@@ -1,64 +1,133 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const recommendButton = document.getElementById('recommend-button');
-    const cafeInfo = document.getElementById('cafe-info');
-    const cafeName = document.getElementById('cafe-name');
-    const cafeRatings = document.getElementById('cafe-ratings');
+  const chatOutput = document.getElementById('chat-output');
+  const userInput = document.getElementById('user-input');
+  const sendButton = document.getElementById('send-button');
 
-    const sinchonCafes = [
-        { name: '스타벅스', ratings: { taste: 3, facility: 4, noise: 4 }, themes: ['date', 'relax'] },
-        { name: '고르드', ratings: { taste: 5, facility: 1, noise: 3 }, themes: ['study'] },
-        { name: '알로하', ratings: { taste: 3, facility: 2, noise: 4 }, themes: ['relax'] },
-        { name: '파이홀', ratings: { taste: 4, facility: 3, noise: 3 }, themes: ['date', 'study'] },
-        { name: '폴바셋', ratings: { taste: 5, facility: 4, noise: 5 }, themes: ['relax', 'date', 'study'] },
-        { name: '커피빈', ratings: { taste: 3, facility: 3, noise: 2 }, themes: ['study'] }
-    ];
+  const sinchonCafes = [
+      { name: '스타벅스', ratings: { taste: 3, facility: 4, noise: 4 } },
+      { name: '고르드', ratings: { taste: 5, facility: 1, noise: 3 } },
+      { name: '알로하', ratings: { taste: 3, facility: 2, noise: 4 } },
+      { name: '파이홀', ratings: { taste: 4, facility: 3, noise: 3 } },
+      { name: '폴바셋', ratings: { taste: 5, facility: 4, noise: 5 } },
+      { name: '커피빈', ratings: { taste: 3, facility: 3, noise: 2 } }
+  ];
 
-    const yeonnamCafes = [
-        { name: '카페레이어드', ratings: { taste: 4, facility: 2, noise: 3 }, themes: ['date', 'relax'] },
-        { name: '달콤다정', ratings: { taste: 4, facility: 3, noise: 4 }, themes: ['date', 'study'] },
-        { name: '땡스오트', ratings: { taste: 5, facility: 2, noise: 5 }, themes: ['study'] },
-        { name: '테일러커피', ratings: { taste: 5, facility: 3, noise: 3 }, themes: ['relax', 'study'] },
-        { name: '모모스커피', ratings: { taste: 5, facility: 4, noise: 4 }, themes: ['relax', 'date', 'study'] },
-        { name: '커피리브레', ratings: { taste: 4, facility: 3, noise: 3 }, themes: ['study'] }
-    ];
+  const yeonnamCafes = [
+      { name: '카페레이어드', ratings: { taste: 4, facility: 2, noise: 3 } },
+      { name: '달콤다정', ratings: { taste: 4, facility: 3, noise: 4 } },
+      { name: '땡스오트', ratings: { taste: 5, facility: 2, noise: 5 } },
+      { name: '테일러커피', ratings: { taste: 5, facility: 3, noise: 3 } },
+      { name: '모모스커피', ratings: { taste: 5, facility: 4, noise: 4 } },
+      { name: '커피리브레', ratings: { taste: 4, facility: 3, noise: 3 } }
+  ];
 
-    const hongdaeCafes = [
-        { name: '작당모의', ratings: { taste: 4, facility: 3, noise: 4 }, themes: ['date', 'relax'] },
-        { name: '샌드스톤커피랩', ratings: { taste: 5, facility: 5, noise: 5 }, themes: ['study'] },
-        { name: '스타벅스', ratings: { taste: 4, facility: 3, noise: 3 }, themes: ['relax', 'study'] },
-        { name: '투썸플레이스', ratings: { taste: 4, facility: 3, noise: 3 }, themes: ['date', 'study'] },
-        { name: '망원동티라미수', ratings: { taste: 5, facility: 4, noise: 4 }, themes: ['relax', 'date'] },
-        { name: '커피몽타주', ratings: { taste: 5, facility: 5, noise: 4 }, themes: ['relax', 'study'] }
-    ];
+  const hongdaeCafes = [
+      { name: '작당모의', ratings: { taste: 4, facility: 3, noise: 4 } },
+      { name: '샌드스톤커피랩', ratings: { taste: 5, facility: 5, noise: 5 } },
+      { name: '스타벅스', ratings: { taste: 4, facility: 3, noise: 3 } },
+      { name: '투썸플레이스', ratings: { taste: 4, facility: 3, noise: 3 } },
+      { name: '망원동티라미수', ratings: { taste: 5, facility: 4, noise: 4 } },
+      { name: '커피몽타주', ratings: { taste: 5, facility: 5, noise: 4 } }
+  ];
 
-    const getRandomCafe = (cafes) => {
-        const randomIndex = Math.floor(Math.random() * cafes.length);
-        return cafes[randomIndex];
-    };
+  let step = 0;
+  let userPreferences = {};
+  let location;
 
-    recommendButton.addEventListener('click', () => {
-        const location = document.getElementById('location').value;
-        const theme = document.getElementById('theme').value;
+  const scrollToBottom = () => {
+      chatOutput.scrollTop = chatOutput.scrollHeight;
+  };
 
-        let selectedCafes = [];
+  const appendMessage = (message, sender) => {
+      const messageElement = document.createElement('div');
+      messageElement.textContent = message;
+      messageElement.className = sender;
+      chatOutput.appendChild(messageElement);
+      scrollToBottom();  // 자동 스크롤 기능 추가
+  };
 
-        if (location === 'sinchon') {
-            selectedCafes = sinchonCafes.filter(cafe => cafe.themes.includes(theme));
-        } else if (location === 'yeonnam') {
-            selectedCafes = yeonnamCafes.filter(cafe => cafe.themes.includes(theme));
-        } else if (location === 'hongdae') {
-            selectedCafes = hongdaeCafes.filter(cafe => cafe.themes.includes(theme));
-        }
+  const recommendCafes = (location, preferences) => {
+      let cafes = [];
+      switch (location) {
+          case '신촌':
+              cafes = sinchonCafes;
+              break;
+          case '연남':
+              cafes = yeonnamCafes;
+              break;
+          case '홍대':
+              cafes = hongdaeCafes;
+              break;
+          default:
+              return [];
+      }
 
-        if (selectedCafes.length > 0) {
-            const randomCafe = getRandomCafe(selectedCafes);
-            cafeName.textContent = randomCafe.name;
-            cafeRatings.textContent = `맛: ${randomCafe.ratings.taste}, 시설: ${randomCafe.ratings.facility}, 소음: ${randomCafe.ratings.noise}`;
-            cafeInfo.classList.remove('hidden');
-        } else {
-            cafeName.textContent = '조건에 맞는 카페가 없습니다.';
-            cafeRatings.textContent = '';
-            cafeInfo.classList.remove('hidden');
-        }
-    });
+      const filteredCafes = cafes.filter(cafe =>
+          cafe.ratings.facility >= preferences.facility &&
+          cafe.ratings.noise >= preferences.noise &&
+          cafe.ratings.taste >= preferences.taste
+      );
+
+      return filteredCafes;
+  };
+
+  const processUserInput = (input) => {
+      switch (step) {
+          case 0:
+              location = input;
+              appendMessage('시설 등급(1-5) 최소 어느 정도를 원하시나요?', 'bot');
+              step++;
+              break;
+          case 1:
+              userPreferences.facility = parseInt(input);
+              appendMessage('소음 등급(1-5) 최소 어느 정도를 원하시나요?', 'bot');
+              step++;
+              break;
+          case 2:
+              userPreferences.noise = parseInt(input);
+              appendMessage('맛 등급(1-5) 최소 어느 정도를 원하시나요?', 'bot');
+              step++;
+              break;
+          case 3:
+              userPreferences.taste = parseInt(input);
+              const recommendedCafes = recommendCafes(location, userPreferences);
+              if (recommendedCafes.length > 0) {
+                  appendMessage('조건에 맞는 카페를 추천합니다:', 'bot');
+                  recommendedCafes.forEach(cafe => {
+                      appendMessage(`추천 카페: ${cafe.name}, 맛: ${cafe.ratings.taste}, 시설: ${cafe.ratings.facility}, 소음: ${cafe.ratings.noise}`, 'bot');
+                  });
+              } else {
+                  appendMessage('조건에 맞는 카페가 없습니다.', 'bot');
+              }
+              step = 0;
+              appendMessage('다른 지역의 카페를 찾고 싶으시면 지역명을 입력해주세요. (신촌, 연남, 홍대)', 'bot');
+              break;
+          default:
+              appendMessage('잘못된 입력입니다. 다시 시도해주세요.', 'bot');
+              step = 0;
+              appendMessage('어느 지역의 카페를 찾고 계신가요? (신촌, 연남, 홍대)', 'bot');
+              break;
+      }
+  };
+
+  appendMessage('안녕하세요! 카페 추천 챗봇입니다. 어느 지역의 카페를 찾고 계신가요? (신촌, 연남, 홍대)', 'bot');
+
+  sendButton.addEventListener('click', () => {
+      const userMessage = userInput.value.trim();
+      if (userMessage) {
+          appendMessage(userMessage, 'user');
+          processUserInput(userMessage);
+          userInput.value = '';
+      }
+  });
+
+  userInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+          sendButton.click();
+      }
+  });
+
+  // MutationObserver를 사용하여 채팅창에 새로운 메시지가 추가될 때마다 스크롤 조정
+  const observer = new MutationObserver(scrollToBottom);
+  observer.observe(chatOutput, { childList: true });
 });
