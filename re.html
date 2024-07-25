@@ -3,42 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Cafe Recommendation</title>
+    <title>빠른 추천</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .button-container button {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .button-container button:hover {
+            background-color: #333;
+        }
+
+        .line {
+            border-top: 1px solid black;
+            margin: 20px 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .cafe-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>랜덤 카페 추천</h1>
-    </header>
+<img src="/index.png" width="100%">
+    <div class="line"></div>
+    <div class="button-container">
+        <label for="location">장소 선택:</label>
+        <select id="location">
+            <option value="sinchon">신촌</option>
+            <option value="yeonnam">연남</option>
+            <option value="hongdae">홍대</option>
+        </select>
+        <label for="theme">테마 선택:</label>
+        <select id="theme">
+            <option value="date">데이트</option>
+            <option value="relax">휴식</option>
+            <option value="study">공부</option>
+        </select>
+        <br><br><br>
+        <button id="recommend-button">추천 받기</button>
+        <br><br>
+        <b> 아래 주문하신 카페 나왔습니다~</b>
+    </div>
+    <div class="line"></div>
 
-    <main>
-        <div id="recommendation">
-            <label for="location">지역을 선택하세요:</label>
-            <select id="location">
-                <option value="sinchon">신촌</option>
-                <option value="yeonnam">연남</option>
-                <option value="hongdae">홍대</option>
-            </select>
-            <br><br>
-            <label for="theme">테마를 선택하세요:</label>
-            <select id="theme">
-                <option value="date">소개팅</option>
-                <option value="study">공부</option>
-                <option value="relax">휴식</option>
-            </select>
-            <br><br>
-            <button id="recommend-button">카페 추천받기</button>
-            <div id="cafe-info" class="hidden">
-                <h2 id="cafe-name"></h2>
-                <p id="cafe-ratings"></p>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Random Cafe Recommendation. All rights reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
+    <div id="cafe-info" class="hidden cafe-info">
+        <h2 id="cafe-name"></h2>
+        <p id="cafe-ratings"></p>
+    </div>
+    
+    <script src="re.js"></script>
 </body>
 </html>
