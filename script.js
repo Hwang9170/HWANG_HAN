@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: '커피몽타주', ratings: { taste: 5, facility: 5, noise: 4 } }
     ];
 
-    let step = 0;
+      let step = 0;
     let userPreferences = {};
     let location;
 
