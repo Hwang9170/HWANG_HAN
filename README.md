@@ -45,8 +45,6 @@ sh
 코드 복사
 git push origin feature/your-feature-name
 풀 리퀘스트를 생성합니다.
-라이선스
-이 프로젝트는 MIT 라이선스에 따라 배포됩니다. 자세한 내용은 LICENSE 파일을 참조하십시오.
 
 연락처
 프로젝트에 대한 문의 사항이 있으시면 다음 이메일로 연락주세요:
