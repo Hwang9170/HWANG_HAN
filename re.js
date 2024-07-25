@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cafeInfo = document.getElementById('cafe-info');
     const cafeName = document.getElementById('cafe-name');
     const cafeRatings = document.getElementById('cafe-ratings');
+    const themeImage = document.getElementById('theme-image');
 
     const sinchonCafes = [
         { name: '스타벅스', ratings: { taste: 3, facility: 4, noise: 4 }, themes: ['date', 'relax'] },
@@ -59,6 +60,15 @@ document.addEventListener('DOMContentLoaded', () => {
             cafeName.textContent = '조건에 맞는 카페가 없습니다.';
             cafeRatings.textContent = '';
             cafeInfo.classList.remove('hidden');
+        }
+
+        // Change theme image based on selected theme
+        if (theme === 'date') {
+            themeImage.src = '/re_img/002.png';
+        } else if (theme === 'relax') {
+            themeImage.src = '/re_img/003.png';
+        } else if (theme === 'study') {
+            themeImage.src = '/re_img/004.png';
         }
     });
 });

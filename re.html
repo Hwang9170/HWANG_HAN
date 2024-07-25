@@ -6,11 +6,18 @@
     <title>빠른 추천</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
         .button-container {
             text-align: center;
             margin: 20px 0;
         }
-
         .button-container button {
             background-color: black;
             color: white;
@@ -20,30 +27,42 @@
             font-size: 16px;
             border-radius: 5px;
         }
-
         .button-container button:hover {
             background-color: #333;
         }
-
         .line {
             border-top: 1px solid black;
             margin: 20px 0;
         }
-
         .hidden {
             display: none;
         }
-
         .cafe-info {
             text-align: center;
             margin-top: 20px;
         }
+        .theme-image {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            display: block;
+        }
+        .form-container {
+            margin: 20px 0;
+        }
+        .form-container label, .form-container select {
+            font-size: 18px;
+            margin: 5px;
+        }
+        .result-container {
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
-<img src="/index.png" width="100%">
+    <img id="theme-image" src="/index.png" width="100%">
     <div class="line"></div>
-    <div class="button-container">
+    <div class="form-container">
         <label for="location">장소 선택:</label>
         <select id="location">
             <option value="sinchon">신촌</option>
@@ -56,18 +75,15 @@
             <option value="relax">휴식</option>
             <option value="study">공부</option>
         </select>
-        <br><br><br>
-        <button id="recommend-button">추천 받기</button>
         <br><br>
-        <b> 아래 주문하신 카페 나왔습니다~</b>
+        <button id="recommend-button">추천 받기</button>
     </div>
+    <b> 주문하신 카페 아래 나왔습니다 ~</b>
     <div class="line"></div>
-
     <div id="cafe-info" class="hidden cafe-info">
         <h2 id="cafe-name"></h2>
         <p id="cafe-ratings"></p>
     </div>
-    
     <script src="re.js"></script>
 </body>
 </html>
