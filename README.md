@@ -20,54 +20,38 @@
 ![이미지](/re_img/003.png)
 ![이미지](/re_img/004.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## 설치 및 사용 방법
 
-1. 이 리포지토리를 클론합니다:
+1. 이 리포지토리를 클론합니다:<br>
    ```sh
-   git clone https://github.com/your-username/HWANG_HAN.git
-프로젝트 디렉토리로 이동합니다:
-sh
-코드 복사
-cd HWANG_HAN
-index.html 파일을 브라우저에서 엽니다:
-sh
-코드 복사
-open index.html
-기여 방법
-이 프로젝트는 오픈 소스이며, 누구나 기여할 수 있습니다. 기여하고 싶으신 분들은 다음 단계를 따라주세요:
+<br> git clone https://github.com/your-username/HWANG_HAN.git 
+<br>프로젝트 디렉토리로 이동합니다:<br>
+sh<br>
+코드 복사<br>
+cd HWANG_HAN<br>
+index.html 파일을 브라우저에서 엽니다:<br>
+sh<br>
+코드 복사<br>
+open index.html<br>
+기여 방법<br>
+이 프로젝트는 오픈 소스이며, 누구나 기여할 수 있습니다. 기여하고 싶으신 분들은 다음 단계를 따라주세요:<br>
 
-리포지토리를 포크합니다.
-새로운 브랜치를 생성합니다:
-sh
-코드 복사
-git checkout -b feature/your-feature-name
-변경 사항을 커밋합니다:
-sh
-코드 복사
-git commit -m "Add your feature"
-브랜치에 푸시합니다:
-sh
-코드 복사
-git push origin feature/your-feature-name
-풀 리퀘스트를 생성합니다.
+리포지토리를 포크합니다.<br>
+새로운 브랜치를 생성합니다:<br>
+sh<br>
+코드 복사<br>
+git checkout -b feature/your-feature-name<br>
+변경 사항을 커밋합니다:<br>
+sh<br>
+코드 복사<br>
+git commit -m "Add your feature"<br>
+브랜치에 푸시합니다:<br>
+sh<br>
+코드 복사<br>
+git push origin feature/your-feature-name<br>
+풀 리퀘스트를 생성합니다.<br><br>
 
-연락처
-프로젝트에 대한 문의 사항이 있으시면 다음 이메일로 연락주세요:
+연락처<br>
+프로젝트에 대한 문의 사항이 있으시면 다음 이메일로 연락주세요:<br>
 
-Email: jkimg9170@naver.com
+Email: jkimg9170@naver.com<br>
