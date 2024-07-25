@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
     const inputContainer = document.getElementById('input-container');
-  
+
     const sinchonCafes = [
         { name: '스타벅스', ratings: { taste: 3, facility: 4, noise: 4 } },
         { name: '고르드', ratings: { taste: 5, facility: 1, noise: 3 } },
@@ -12,16 +12,54 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: '폴바셋', ratings: { taste: 5, facility: 4, noise: 5 } },
         { name: '커피빈', ratings: { taste: 3, facility: 3, noise: 2 } }
     ];
-  
+
     const yeonnamCafes = [
-        { name: '카페레이어드', ratings: { taste: 4, facility: 2, noise: 3 } },
-        { name: '달콤다정', ratings: { taste: 4, facility: 3, noise: 4 } },
-        { name: '땡스오트', ratings: { taste: 5, facility: 2, noise: 5 } },
-        { name: '테일러커피', ratings: { taste: 5, facility: 3, noise: 3 } },
-        { name: '모모스커피', ratings: { taste: 5, facility: 4, noise: 4 } },
-        { name: '커피리브레', ratings: { taste: 4, facility: 3, noise: 3 } }
+        { name: '본지르르 연희', ratings: { taste: 4.5, atmosphere: 5.0, convenience: 5.0 } },
+        { name: '봄봄', ratings: { taste: 4.5, atmosphere: 2.0, convenience: 1.5 } },
+        { name: '미각', ratings: { taste: 3.5, atmosphere: 3.25, convenience: 5.0 } },
+        { name: '고서커피', ratings: { taste: 3.0, atmosphere: 3.5, convenience: 4.5 } },
+        { name: '청수당 공명', ratings: { taste: 4.5, atmosphere: 4.75, convenience: 2.0 } },
+        { name: '라헬의부엌', ratings: { taste: 5.0, atmosphere: 4.5, convenience: 3.5 } },
+        { name: '가즈', ratings: { taste: 2.5, atmosphere: 2.0, convenience: 1.5 } },
+        { name: 'KOG', ratings: { taste: 3.5, atmosphere: 3.25, convenience: 4.0 } },
+        { name: '테일러커피', ratings: { taste: 4.0, atmosphere: 4.25, convenience: 3.75 } },
+        { name: '베란다컵케익', ratings: { taste: 4.25, atmosphere: 3.0, convenience: 2.5 } },
+        { name: '드댕', ratings: { taste: 4.5, atmosphere: 4.0, convenience: 2.0 } },
+        { name: '리브레', ratings: { taste: 5.0, atmosphere: 4.0, convenience: 3.0 } },
+        { name: '브라운하우스', ratings: { taste: 3.75, atmosphere: 4.0, convenience: 3.5 } },
+        { name: '레인리포트', ratings: { taste: 4.0, atmosphere: 4.25, convenience: 3.5 } },
+        { name: '스타', ratings: { taste: 3.0, atmosphere: 3.0, convenience: 2.5 } },
+        { name: '마가렛연남', ratings: { taste: 4.25, atmosphere: 3.5, convenience: 3.0 } },
+        { name: '베니케이크', ratings: { taste: 4.5, atmosphere: 4.0, convenience: 3.5 } },
+        { name: '카페레이어드', ratings: { taste: 4.25, atmosphere: 4.25, convenience: 3.75 } },
+        { name: '기억안남', ratings: { taste: 3.0, atmosphere: 2.5, convenience: 2.0 } },
+        { name: '카페 공명', ratings: { taste: 4.5, atmosphere: 4.5, convenience: 3.5 } },
+        { name: '터틀힙', ratings: { taste: 4.0, atmosphere: 4.0, convenience: 3.5 } },
+        { name: '코리코카페', ratings: { taste: 4.0, atmosphere: 3.75, convenience: 3.25 } },
+        { name: '폴바셋', ratings: { taste: 4.75, atmosphere: 4.5, convenience: 3.5 } },
+        { name: '티크닉', ratings: { taste: 3.75, atmosphere: 3.5, convenience: 3.0 } },
+        { name: '오이', ratings: { taste: 4.0, atmosphere: 3.75, convenience: 2.75 } },
+        { name: '코이크', ratings: { taste: 4.5, atmosphere: 4.25, convenience: 3.75 } },
+        { name: '일쩜오플로어', ratings: { taste: 4.0, atmosphere: 3.75, convenience: 3.0 } },
+        { name: '애몽', ratings: { taste: 4.5, atmosphere: 4.0, convenience: 3.5 } },
+        { name: '연남동그라미', ratings: { taste: 4.0, atmosphere: 3.5, convenience: 3.25 } },
+        { name: '클로이인패리스', ratings: { taste: 4.0, atmosphere: 3.75, convenience: 3.0 } },
+        { name: '피크닉', ratings: { taste: 4.0, atmosphere: 3.75, convenience: 3.0 } },
+        { name: '발트', ratings: { taste: 4.0, atmosphere: 3.75, convenience: 3.0 } },
+        { name: '카페드댕', ratings: { taste: 4.25, atmosphere: 3.5, convenience: 3.0 } },
+        { name: '랜디스 도넛', ratings: { taste: 4.5, atmosphere: 4.25, convenience: 3.75 } },
+        { name: '카페 레이어드', ratings: { taste: 4.25, atmosphere: 4.25, convenience: 3.75 } },
+        { name: '달콤다정', ratings: { taste: 4.5, atmosphere: 4.25, convenience: 3.5 } },
+        { name: '라온디', ratings: { taste: 4.0, atmosphere: 3.75, convenience: 3.25 } },
+        { name: '봄', ratings: { taste: 4.0, atmosphere: 3.75, convenience: 3.25 } },
+        { name: '작당모의', ratings: { taste: 4.5, atmosphere: 4.0, convenience: 3.5 } },
+        { name: '에브리데이해피벌스데이', ratings: { taste: 4.0, atmosphere: 3.5, convenience: 3.0 } },
+        { name: '블루보틀', ratings: { taste: 4.5, atmosphere: 4.0, convenience: 3.5 } },
+        { name: '레인리포트 브리티시', ratings: { taste: 4.0, atmosphere: 4.0, convenience: 3.5 } },
+        { name: '바이닐하우스', ratings: { taste: 4.0, atmosphere: 3.75, convenience: 3.0 } },
+        { name: '땡스오트', ratings: { taste: 5.0, atmosphere: 4.25, convenience: 3.5 } }
     ];
-  
+
     const hongdaeCafes = [
         { name: '작당모의', ratings: { taste: 4, facility: 3, noise: 4 } },
         { name: '샌드스톤커피랩', ratings: { taste: 5, facility: 5, noise: 5 } },
@@ -30,15 +68,15 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: '망원동티라미수', ratings: { taste: 5, facility: 4, noise: 4 } },
         { name: '커피몽타주', ratings: { taste: 5, facility: 5, noise: 4 } }
     ];
-  
+
     let step = 0;
     let userPreferences = {};
     let location;
-  
+
     const scrollToBottom = () => {
         chatOutput.scrollTop = chatOutput.scrollHeight;
     };
-  
+
     const appendMessage = (message, sender) => {
         const messageElement = document.createElement('div');
         messageElement.innerHTML = message;
@@ -46,11 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
         chatOutput.appendChild(messageElement);
         scrollToBottom();
     };
-  
+
     const appendRatingButtons = (preferenceType) => {
         const ratings = ['상관없음', '별로', '보통', '중요', '매우 중요'];
         const buttonContainer = document.createElement('div');
-  
+
         ratings.forEach((rating, index) => {
             const button = document.createElement('button');
             button.textContent = rating;
@@ -62,16 +100,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             buttonContainer.appendChild(button);
         });
-  
+
         chatOutput.appendChild(buttonContainer);
         scrollToBottom();
     };
-  
+
     const getRandomCafe = (cafes) => {
         const randomIndex = Math.floor(Math.random() * cafes.length);
         return cafes[randomIndex];
     };
-  
+
     const recommendCafe = (location, preferences) => {
         let cafes = [];
         switch (location) {
@@ -87,16 +125,16 @@ document.addEventListener('DOMContentLoaded', () => {
             default:
                 return null;
         }
-  
+
         const filteredCafes = cafes.filter(cafe =>
             cafe.ratings.facility >= preferences.facility &&
             cafe.ratings.noise >= preferences.noise &&
             cafe.ratings.taste >= preferences.taste
         );
-  
+
         return getRandomCafe(filteredCafes);
     };
-  
+
     const processUserInput = (input) => {
         switch (step) {
             case 0:
@@ -142,9 +180,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
         }
     };
-  
+
     appendMessage('안녕하세요! 카페 추천 챗봇입니다. 어느 지역의 카페를 찾고 계신가요? (신촌, 연남, 홍대)', 'bot');
-  
+
     sendButton.addEventListener('click', () => {
         const userMessage = userInput.value.trim();
         if (userMessage) {
@@ -153,14 +191,13 @@ document.addEventListener('DOMContentLoaded', () => {
             userInput.value = '';
         }
     });
-  
+
     userInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             sendButton.click();
         }
     });
-  
+
     const observer = new MutationObserver(scrollToBottom);
     observer.observe(chatOutput, { childList: true });
-  });
-  
+});
