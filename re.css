@@ -26,22 +26,22 @@ label {
 
 select, button {
   font-size: 1.2em;
-  padding: 0.5em;
+  padding: 0.75em;
   margin: 0.5em 0;
-  width: 200px;
+  width: 220px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 button {
-  background-color: #4CAF50;
+  background-color: black;
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #333;
 }
 
 .hidden {
