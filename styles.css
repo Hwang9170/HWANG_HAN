@@ -36,6 +36,11 @@ main {
   flex-direction: column;
 }
 
+#input-container {
+  display: flex;
+  margin-top: 10px;
+}
+
 #user-input {
   width: calc(100% - 100px);
   padding: 0.5em;
@@ -65,3 +70,14 @@ main {
   margin: 5px 0;
 }
 
+.rating-button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.rating-button:hover {
+  background-color: #ddd;
+}
