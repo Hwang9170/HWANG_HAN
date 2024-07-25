@@ -5,15 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI-Powered Cafe Recommendation Chatbot</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .button-container button {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .button-container button:hover {
+            background-color: #333;
+        }
+
+        .line {
+            border-top: 1px solid black;
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>테스트용</h1>
-    </header>
-    <br><br><br>
-<a href="/chat.html"><button> chat bot</button></a>
+    <a href="/chat.html"><img src="/index.png" width="100%"></a>
     
-    <a href="/re.html"> <button>빠른 추천</button></a>
+    <div class="line"></div>
+    <div class="button-container">
+        <a href="/re.html"><button>빠른 추천 받기</button></a>
+        <a href="/re.html"><button>AI 맞춤 추천 받기</button></a>
+
+    </div>
+    <div class="line"></div>
+    
     <script src="script.js"></script>
 </body>
 </html>
