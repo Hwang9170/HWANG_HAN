@@ -22,8 +22,9 @@
 
 ## 설치 및 사용 방법
 
-1. 이 리포지토리를 클론합니다: ```sh git clone https://github.com/your-username/HWANG_HAN.git 
-<br>프로젝트 디렉토리로 이동합니다:<br>
+1. 이 리포지토리를 클론합니다:
+   ```sh git clone https://github.com/your-username/HWANG_HAN.git 
+프로젝트 디렉토리로 이동합니다:<br>
 sh<br>
 코드 복사<br>
 cd HWANG_HAN<br>
