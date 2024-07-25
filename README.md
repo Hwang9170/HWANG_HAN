@@ -14,3 +14,41 @@
 - **HTML5 & CSS3**: 웹 페이지의 구조와 스타일을 정의하는 데 사용되었습니다.
 - **JavaScript**: 사용자 인터랙션과 동적 추천 기능을 구현하는 데 사용되었습니다.
 - **Git**: 버전 관리 및 협업을 위해 사용되었습니다.
+
+## 설치 및 사용 방법
+
+1. 이 리포지토리를 클론합니다:
+   ```sh
+   git clone https://github.com/your-username/HWANG_HAN.git
+프로젝트 디렉토리로 이동합니다:
+sh
+코드 복사
+cd HWANG_HAN
+index.html 파일을 브라우저에서 엽니다:
+sh
+코드 복사
+open index.html
+기여 방법
+이 프로젝트는 오픈 소스이며, 누구나 기여할 수 있습니다. 기여하고 싶으신 분들은 다음 단계를 따라주세요:
+
+리포지토리를 포크합니다.
+새로운 브랜치를 생성합니다:
+sh
+코드 복사
+git checkout -b feature/your-feature-name
+변경 사항을 커밋합니다:
+sh
+코드 복사
+git commit -m "Add your feature"
+브랜치에 푸시합니다:
+sh
+코드 복사
+git push origin feature/your-feature-name
+풀 리퀘스트를 생성합니다.
+라이선스
+이 프로젝트는 MIT 라이선스에 따라 배포됩니다. 자세한 내용은 LICENSE 파일을 참조하십시오.
+
+연락처
+프로젝트에 대한 문의 사항이 있으시면 다음 이메일로 연락주세요:
+
+Email: jkimg9170@naver.com
