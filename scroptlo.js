@@ -9,8 +9,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
   if (username === 'user' && password === 'password') {
       errorMessage.textContent = '';
       alert('로그인 성공!');
-      // 실제 로그인 시 홈 페이지로 이동하거나 다른 동작 수행
-      // window.location.href = 'home.html'; // 예: 로그인 후 홈 페이지로 이동
+      window.location.href = 'index.html';     
   } else {
       errorMessage.textContent = '아이디 또는 비밀번호가 잘못되었습니다.';
   }
