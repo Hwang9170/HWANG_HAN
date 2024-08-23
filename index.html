@@ -3,45 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-Powered Cafe Recommendation Chatbot</title>
+    <title>해외 취업 멘토 중계</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .button-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .button-container button {
-            background-color: black;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
-        }
-
-        .button-container button:hover {
-            background-color: #333;
-        }
-
-        .line {
-            border-top: 1px solid black;
-            margin: 20px 0;
-        }
-    </style>
 </head>
 <body>
-    <img src="/index.png" width="100%">
-    
-    <div class="line"></div>
-    <div class="button-container">
-        <a href="/re.html"><button>빠른 추천 받기</button></a>
-        <a href="/chat.html"><button>AI 맞춤 추천 받기</button></a>
+    <header>
+        <h1>해외 취업 멘토 중계 서비스</h1>
+    </header>
+    <br><br>
 
-    </div>
-    <div class="line"></div>
-    
+    <a href="/login.html"><button>로그인</button></a>
+    <main>
+        <section id="search-section">
+            <h2>멘토 검색</h2>
+            <input type="text" id="search-input" placeholder="분야나 이름으로 검색">
+            <button id="search-btn">검색</button>
+        </section>
+
+        <section id="mentor-list">
+            <h2>추천 멘토</h2>
+            <div id="mentors"></div>
+        </section>
+    </main>
+    <br><br><br>
+    <footer>
+        <p>© 2024 해외 취업 멘토 중계 서비스</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

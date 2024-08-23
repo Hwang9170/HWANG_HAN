@@ -1,0 +1,155 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1em 0;
+  text-align: center;
+}
+
+main {
+  padding: 1em;
+}
+
+#chatbot {
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+#chat-window {
+  border: 1px solid #ccc;
+  padding: 1em;
+  height: 200px;
+  overflow-y: scroll;
+}
+
+#chat-output {
+  display: flex;
+  flex-direction: column;
+}
+
+#input-container {
+  display: flex;
+  margin-top: 10px;
+}
+
+#user-input {
+  width: calc(100% - 110px);
+  padding: 1em;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#send-button {
+  width: 100px;
+  padding: 1em;
+  margin-left: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#send-button:hover {
+  background-color: #333;
+}
+
+.user {
+  align-self: flex-end;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 5px 0;
+}
+
+.bot {
+  align-self: flex-start;
+  background-color: #f1f1f1;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 5px 0;
+}
+
+.rating-button {
+  padding: 15px 30px;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  font-size: 1em;
+}
+
+.rating-button:hover {
+  background-color: #333;
+}
+
+button {
+  padding: 1em;
+  margin: 10px 0;
+  width: 90%;
+  max-width: 300px;
+  font-size: 1.2em;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+.hidden {
+  display: none;
+}
+
+#cafe-info {
+  margin-top: 2em;
+  padding: 1em;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#cafe-info h2 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+#cafe-info p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.button-container a {
+  width: 90%;
+  max-width: 300px;
+}
+
+.button-container button {
+  width: 100%;
+}
