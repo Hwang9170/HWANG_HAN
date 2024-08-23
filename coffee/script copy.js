@@ -200,6 +200,7 @@ const processUserInput = (input) => {
             step = 0;
             appendMessage('어느 지역의 카페를 찾고 계신가요? (신촌, 연남, 홍대)', 'bot');
             break;
+            // 헤헤 
     }
 };
 
@@ -223,3 +224,4 @@ userInput.addEventListener('keypress', (e) => {
 const observer = new MutationObserver(scrollToBottom);
 observer.observe(chatOutput, { childList: true });
 });
+
