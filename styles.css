@@ -10,7 +10,9 @@ body {
   width: 80%;
   margin: auto;
   overflow: hidden;
-  
+  display: flex;
+  justify-content: space-between; /* 로고와 네비게이션 사이에 공간 배분 */
+  align-items: center;
 }
 
 header {
@@ -26,6 +28,11 @@ header .logo h1 {
   margin: 0;
   font-size: 2rem;
   color: #333;
+}
+
+nav {
+  display: flex;
+  align-items: center;
 }
 
 nav ul {
@@ -50,6 +57,8 @@ nav ul li a {
   padding: 10px 20px;
   text-decoration: none;
   border-radius: 5px;
+  margin-left: auto; /* 메뉴와 버튼 사이에 공간 확보 */
+  display: inline-block;
 }
 
 #hero {
@@ -134,4 +143,121 @@ footer {
   color: #fff;
   text-align: center;
   padding: 10px 0;
+}
+
+/* 모바일 최적화 */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    flex-direction: column;
+    align-items: center; /* 모바일에서는 컨텐츠를 중앙 정렬 */
+  }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  header .logo h1 {
+    font-size: 1.5rem; /* 모바일에서 로고 크기 조정 */
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%; /* 네비게이션 메뉴를 전체 너비로 설정 */
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  nav ul li {
+    margin: 10px 0; /* 리스트 항목 간 간격 조정 */
+  }
+
+  .btn-contact {
+    margin-left: 0; /* 좌우 여백 초기화 */
+    width: 100%; /* 버튼을 화면 너비로 설정 */
+    text-align: center; /* 버튼 텍스트 가운데 정렬 */
+    padding: 15px 0; /* 버튼 크기 조정 */
+  }
+
+  #hero {
+    padding: 100px 0; /* 배너 높이를 줄여 더 보기 쉽게 조정 */
+    background-position: top;
+  }
+
+  #hero h2 {
+    font-size: 2rem; /* 헤더 글자 크기 조정 */
+  }
+
+  #hero p {
+    font-size: 1.2rem; /* 서브 텍스트 크기 조정 */
+  }
+
+  .btn-learn-more {
+    width: 100%; /* 버튼을 화면 너비로 설정 */
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1.2rem;
+  }
+
+  #features, #about, #testimonials, #contact {
+    padding: 40px 0; /* 섹션 간 간격 조정 */
+  }
+
+  #features .feature {
+    margin: 15px 0;
+  }
+
+  #contact form input, #contact form textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    font-size: 1rem; /* 입력 필드 텍스트 크기 조정 */
+  }
+
+  #contact form button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+  }
+}
+
+/* 더 작은 모바일 기기 (예: 아이폰 SE) */
+@media (max-width: 480px) {
+  header .logo h1 {
+    font-size: 1.2rem; /* 작은 화면에서 로고 크기 더 작게 조정 */
+  }
+
+  nav ul li {
+    margin: 8px 0; /* 리스트 항목 간 간격 더 좁게 조정 */
+  }
+
+  .btn-contact {
+    padding: 12px 0; /* 버튼 크기 더 작게 조정 */
+    font-size: 1rem;
+  }
+
+  #hero h2 {
+    font-size: 1.8rem; /* 헤더 글자 크기 더 작게 조정 */
+  }
+
+  #hero p {
+    font-size: 1rem; /* 서브 텍스트 크기 더 작게 조정 */
+  }
+
+  .btn-learn-more {
+    padding: 12px 0;
+    font-size: 1rem; /* 버튼 텍스트 크기 조정 */
+  }
+
+  #contact form input, #contact form textarea {
+    padding: 12px;
+    font-size: 0.9rem; /* 입력 필드 텍스트 크기 더 작게 조정 */
+  }
+
+  #contact form button {
+    padding: 12px;
+    font-size: 1rem;
+  }
 }
