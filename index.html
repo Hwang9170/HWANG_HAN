@@ -3,33 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>해외 취업 멘토 중계</title>
+    <title>해외 취업 멘토링 플랫폼</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>해외 취업 멘토 중계 서비스</h1>
+        <div class="container">
+            <div class="logo">
+                <h1>BizBud</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">홈</a></li>
+                    <li><a href="#">서비스</a></li>
+                    <li><a href="#">소개</a></li>
+                    <li><a href="#">추천사</a></li>
+                    <li><a href="#">고객사</a></li>
+                    <a href="#" class="btn-contact">문의</a>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <br><br>
 
-    <a href="/login.html"><button>로그인</button></a>
-    <main>
-        <section id="search-section">
-            <h2>멘토 검색</h2>
-            <input type="text" id="search-input" placeholder="분야나 이름으로 검색">
-            <button id="search-btn">검색</button>
-        </section>
+    <section id="hero">
+        <div class="container">
+            <h2>해외취업 멘토링</h2>
+            <p>서브배너</p>
+            <a href="#" class="btn-learn-more">더 알아보기</a>
+        </div>
+    </section>
 
-        <section id="mentor-list">
-            <h2>추천 멘토</h2>
-            <div id="mentors"></div>
-        </section>
-    </main>
-    <br><br><br>
+    <section id="features">
+        <div class="container">
+            <h2>서비스</h2>
+            <div class="feature">
+                <p>직무 부트캠프<br>장점 설명</p>
+            </div>
+            <div class="feature">
+                <p>해외취업멘토링<br>장점 설명</p>
+            </div>
+            <div class="feature">
+                <p>단락 텍스트를 손쉽게 추가 및<br>편집하려면 클릭하세요</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>멘토 경력 소개</h2>
+            <p>회사 및 서비스를 소개하는 글을 작성해보세요. 해당 섹션을 통해 회사에 대한 자세한 정보를 추가할 수 있습니다.</p>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2>고객 후기입니다.<br>여기를 클릭하여 편집하세요.</h2>
+            <div class="testimonial">
+                <p>고객 1<br>브레인컴퍼니</p>
+            </div>
+            <div class="testimonial">
+                <p>고객 2<br>브레인컴퍼니</p>
+            </div>
+            <div class="testimonial">
+                <p>멘토1<br>브레인컴퍼니</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>신청 문의</h2>
+            <form action="#" method="post">
+                <label for="name">이름:</label>
+                <input type="text" id="name" name="name">
+                <label for="email">이메일:</label>
+                <input type="email" id="email" name="email">
+                <label for="message">메시지:</label>
+                <textarea id="message" name="message"></textarea>
+                <button type="submit">제출</button>
+            </form>
+            <p>고려대학교 ~~<br>Email: info@mysite.com<br>Tel: 010-0000-7890</p>
+        </div>
+    </section>
+
     <footer>
-        <p>© 2024 해외 취업 멘토 중계 서비스</p>
+        <div class="container">
+            <p>© 2024 BizBud. All rights reserved.</p>
+        </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
